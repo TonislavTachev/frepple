@@ -42,14 +42,32 @@ $(function() {
       + 'or another modern browser.'
       );
   	$('#row2').hide();
-  }
+  } // change border color on selected and focused input 
   else
-    $('#id_username').focus();
+    $('input').focusin(function(){
+      $(this).css({"border" : "1px solid #2E3A59"})
+    });
+    //revert to default border color when input is no longer in focus/selected
+    $('input').focusout(function(){
+      $(this).css({"border" : "1px solid #C5CEE0"})
+    });
 
   $("#login-form").on('submit', function() {
     $("#id_password").val($.trim($("#id_password").val()));
   });
+  
+  //change the value of username input placeholder to be Typing...
+ $("#id_username").on("click", ()=>{
+    $("#id_username").attr("placeholder", "Typing...");
+ })
 
+ //change the value of the username input to be default if input is deleted and
+ //field is not selected
+ $("#id_username").blur(()=>{
+   if($(this).val().trim() === ""){
+     $("#id_username").attr("placeholder", "Username");
+   }
+ })
 });
 </script>
 
@@ -83,6 +101,9 @@ $(function() {
 		    <input id="id_password" placeholder="Password" class="form-control" name="password" type="password">
 		    <input type="hidden"  name="next" value="{{ request.prefix }}{{ next }}" />
 		  </div>
+       <div style="text-align: right; margin-bottom: 10px; margin-top:-16px">
+        <a href="/reset_password/" id="forgot_passw">{% trans "Forgot password?" %}</a>
+      </div>
 		  <div class="form-group text-center">
 		    <input type="submit" class="btn btn-md btn-block" id="login_button" value="{% trans 'Log in' %}"/>
 		  </div>
@@ -93,9 +114,6 @@ $(function() {
 		  <label for="remember_me">{% trans "Remember Me" %}</label>
       </div>
       {% endif %} {% endcomment %}
-      <div style="text-align: right; margin-bottom: 10px">
-        <a href="/reset_password/" id="forgot_passw">{% trans "Forgot your password?" %}</a>
-      </div>
 		</form>
     <div class="col-xs-4"></div>
         </div>

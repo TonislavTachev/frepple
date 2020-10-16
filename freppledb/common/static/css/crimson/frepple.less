@@ -1,5 +1,61 @@
+@import "./variables.less";
 
-#id_password{
+//global classes for HTML tags
+
+//Button classes
+
+.btn-giant{
+  border-radius: @btn-border-radius-default;
+  font-weight: @btn-font-weight;
+  font-size: @btn-giant-size;
+  width: 124px;
+  height: 56px;
+}
+
+.btn-large{
+  border-radius: @btn-border-radius-default;
+  font-weight: @btn-font-weight;
+  font-size: @btn-large-size;
+  width: 108px;
+  height: 48px;
+}
+
+.btn-medium{
+  border-radius: @btn-border-radius-default;
+  font-weight: @btn-font-weight;
+  font-size: @btn-medium-size;
+  width: 100px;
+  height: 40px;
+}
+
+.btn-small{
+  border-radius: @btn-border-radius-default;
+  font-weight: @btn-font-weight;
+  font-size: @btn-small-size;
+  height: 32px;
+  width: 83px;
+}
+
+.btn-tiny{
+  border-radius: @btn-border-radius-default;
+  font-weight: @btn-font-weight;
+  font-size: @btn-tiny-size;
+  height: 24px;
+  width: 77px;
+}
+
+//Button disabled
+
+.btn-disabled{
+  background-color: #EDF1F7;
+  color: #8F9BB3;
+  border: none;
+}
+
+/*<!----------------------------------------------------!> */
+
+// login form 
+  #id_password{
     border-radius: 16px;
     border: 1px solid #C5CEE0;
     font-size: 14px;
@@ -18,11 +74,14 @@
   }
   
   #login_button{
-    background-color:#5A3CD2;
     border-radius: 16px;
     color:#FFF;
     margin-top: 58px;
     font-family: 'DM Sans', sans-serif;
+  }
+
+  #login_button:hover{
+    background-color: #7257E0;
   }
   
   #forgot_passw{
@@ -68,5 +127,17 @@
 
 #frepp_form{
   margin-top: 190px;
+}
+
+//progress bar
+
+progress::-webkit-progress-bar{
+  background-color: #D7F3F9;
+}
+
+progress::-webkit-progress-value{
+  background-color: #2FA3BD;
+  border-radius: 71.5px;
+  box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
 }
   

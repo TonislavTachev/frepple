@@ -27,7 +27,8 @@ The changes are:
 {% endblock %}
 
 {% block extrahead %}
-<script src="{{STATIC_URL}}js/jquery-3.4.1.min.js"></script>
+<script src="{{STATIC_URL}}js/jquery-3.4.1.min.js">
+</script>
 <script>
 $(function() {
   if (!!window.MSInputMethodContext && !!document.documentMode) {
@@ -61,6 +62,10 @@ $(function() {
     $("#id_username").attr("placeholder", "Typing...");
  })
 
+ $('.dropdown-toggle').click(function() {
+    $(this).next('.dropdown-menu').slideToggle(500);
+});
+
  //change the value of the username input to be default if input is deleted and
  //field is not selected
  $("#id_username").blur(()=>{
@@ -85,39 +90,58 @@ $(function() {
 
 {% block content %}
 
-<div class="container" id="content-main" style="display:flex; flex-direction:column; justify-content:center; height: 100vh">
-    <div class="row">
-        <div class="col-xs-4"></div>
-        <div class="col-xs-4" id="login_form" style="display:flex; flex-direction:column; justify-content:center;" >
-           
-    <form role="form" id="frepp_form" action="{{request.prefix}}{{app_path}}" method="post">{% csrf_token %}
-		  <div class="form-group">
-		    {{ form.username.errors }}
-		    <input id="id_username" class="form-control" placeholder="Username" maxlength="254" name="username" type="text">
-		  </div>
-      
-		  <div class="form-group">
-		    {{ form.password.errors }}
-		    <input id="id_password" placeholder="Password" class="form-control" name="password" type="password">
-		    <input type="hidden"  name="next" value="{{ request.prefix }}{{ next }}" />
-		  </div>
-       <div style="text-align: right; margin-bottom: 10px; margin-top:-16px">
-        <a href="/reset_password/" id="forgot_passw">{% trans "Forgot password?" %}</a>
-      </div>
-		  <div class="form-group text-center">
-		    <input type="submit" class="btn btn-md btn-primary btn-block" id="login_button" value="{% trans 'Log in' %}"/>
-		  </div>
-	  {% comment %} {% setting "SESSION_COOKIE_AGE" as persistent_cookie %}
-	  {% if persistent_cookie %}
-      <div style="text-align: center; margin-bottom: 10px">		  
-		  <input type="checkbox" id="remember_me" name="remember_me" value="false">&nbsp;
-		  <label for="remember_me">{% trans "Remember Me" %}</label>
-      </div>
-      {% endif %} {% endcomment %}
-		</form>
-    <div class="col-xs-4"></div>
-        </div>
-     </div>
+<div class="container" id="content-main" style="display:flex; flex-direction:column">
+   <div class="row">
+       <div class="col-xs-5">
+             <h1>Buttons</h1>
+            <div style="display:flex; flex-direction:column">
+       		<input type="submit" class="btn btn-primary btn-giant"  value="{% trans 'Giat' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-primary btn-large"  value="{% trans 'Large' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-primary btn-medium"  value="{% trans 'Medium' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-primary btn-small"  value="{% trans 'Small' %}" style="margin-bottom:10px"/>
+             <input type="submit" class="btn btn-primary btn-tiny"  value="{% trans 'Tiny' %}" style="margin-bottom:10px"/>
+             <input type="submit" class="btn btn-disabled btn-large"  value="{% trans 'Disabled' %}" style="margin-bottom:10px"/>
+            </div>
+            <h2>Icon buttons</h2>
+          <div class="btn-primary btn-medium" style="display:flex; flex-direction:row; justify-content:space-between; align-items:center; padding:10px">
+            <div><p style="margin:0px">Button</p></div>
+               <div>
+              <img src="https://www.flaticon.com/svg/static/icons/svg/149/149220.svg" style="height:20px; width:20px"/>
+              </div>
+          </div>
+          <div class="btn-primary btn-medium" style="display:flex; flex-direction:row; justify-content:space-between; align-items:center; padding:10px; margin-top:10px;">
+               <div>
+              <img src="https://www.flaticon.com/svg/static/icons/svg/149/149220.svg" style="height:20px; width:20px"/>
+              </div>
+              <div><p style="margin:0px">Button</p></div>
+          </div>
+          <h3>Progress bar</h3>
+          <div>
+          <progress id="file" value="32" max="100"> 32% </progress>
+          </div>
+          <h4>Dropdown menu</h4>
+            <div class="dropdown" style="width:343px">
+               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                 Dropdown
+               <span class="caret"></span>
+            </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+          </div>
+       </div>
+       <div class="col-xs-3">
+       		
+       </div>
+       <div class="col-xs-3">
+       		
+       </div>
+   </div>
+     
 </div>
 
 {% if form.errors and not form.non_field_errors %}

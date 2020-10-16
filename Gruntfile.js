@@ -47,15 +47,15 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     // Less compilation
     less: {
-      odoo: themeconfig('freppledb/common', 'odoo'),
-      grass: themeconfig('freppledb/common', 'grass'),
-      earth: themeconfig('freppledb/common', 'earth'),
-      lemon: themeconfig('freppledb/common', 'lemon'),
-      snow: themeconfig('freppledb/common', 'snow'),
-      strawberry: themeconfig('freppledb/common', 'strawberry'),
-      water: themeconfig('freppledb/common', 'water'),
-      orange: themeconfig('freppledb/common', 'orange'),
-      openbravo: themeconfig('freppledb/common', 'openbravo'),
+      // odoo: themeconfig('freppledb/common', 'odoo'),
+      // grass: themeconfig('freppledb/common', 'grass'),
+      // earth: themeconfig('freppledb/common', 'earth'),
+      // lemon: themeconfig('freppledb/common', 'lemon'),
+      // snow: themeconfig('freppledb/common', 'snow'),
+      // strawberry: themeconfig('freppledb/common', 'strawberry'),
+      // water: themeconfig('freppledb/common', 'water'),
+      // orange: themeconfig('freppledb/common', 'orange'),
+      // openbravo: themeconfig('freppledb/common', 'openbravo'),
       crimson: themeconfig('freppledb/common', 'crimson')
     },
     // When any .less file changes we automatically run the "less"-task.

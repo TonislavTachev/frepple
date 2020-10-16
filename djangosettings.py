@@ -70,35 +70,35 @@ DATABASES = {
         "SQL_ROLE": "report_role",
         "SECRET_WEBTOKEN_KEY": SECRET_KEY,
     },
-    # "scenario1": {
-    #     "ENGINE": "django.db.backends.postgresql",
-    #     "NAME": "scenario1",
-    #     "USER": "frepple",  # Role name when using md5 authentication.
-    #     # Leave as an empty string when using peer or
-    #     # ident authencation.
-    #     "PASSWORD": "frepple",  # Role password when using md5 authentication.
-    #     # Leave as an empty string when using peer or
-    #     # ident authencation.
-    #     "HOST": "",  # When using TCP sockets specify the hostname,
-    #     # the ip4 address or the ip6 address here.
-    #     # Leave as an empty string to use Unix domain
-    #     # socket ("local" lines in pg_hba.conf).
-    #     "PORT": "",  # Leave to empty string when using Unix domain sockets.
-    #     # Specify the port number when using a TCP socket.
-    #     "OPTIONS": {},  # Backend specific configuration parameters.
-    #     "TEST": {
-    #         "NAME": "test_scenario1"  # Database name used when running the test suite.
-    #     },
-    #     "FILEUPLOADFOLDER": os.path.normpath(
-    #         os.path.join(FREPPLE_LOGDIR, "data", "scenario1")
-    #     ),
-    #     # Role name for executing custom reports and processing sql data files.
-    #     # Make sure this role has properly restricted permissions!
-    #     # When left unspecified, SQL statements run with the full read-write
-    #     # permissions of the user specified above. Which can be handy, but is not secure.
-    #     "SQL_ROLE": "report_role",
-    #     "SECRET_WEBTOKEN_KEY": SECRET_KEY,
-    # },
+    "scenario1": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "scenario1",
+        "USER": "frepple",  # Role name when using md5 authentication.
+        # Leave as an empty string when using peer or
+        # ident authencation.
+        "PASSWORD": "frepple",  # Role password when using md5 authentication.
+        # Leave as an empty string when using peer or
+        # ident authencation.
+        "HOST": "",  # When using TCP sockets specify the hostname,
+        # the ip4 address or the ip6 address here.
+        # Leave as an empty string to use Unix domain
+        # socket ("local" lines in pg_hba.conf).
+        "PORT": "",  # Leave to empty string when using Unix domain sockets.
+        # Specify the port number when using a TCP socket.
+        "OPTIONS": {},  # Backend specific configuration parameters.
+        "TEST": {
+            "NAME": "test_scenario1"  # Database name used when running the test suite.
+        },
+        "FILEUPLOADFOLDER": os.path.normpath(
+            os.path.join(FREPPLE_LOGDIR, "data", "scenario1")
+        ),
+        # Role name for executing custom reports and processing sql data files.
+        # Make sure this role has properly restricted permissions!
+        # When left unspecified, SQL statements run with the full read-write
+        # permissions of the user specified above. Which can be handy, but is not secure.
+        "SQL_ROLE": "report_role",
+        "SECRET_WEBTOKEN_KEY": SECRET_KEY,
+    },
     # "scenario2": {
     #     "ENGINE": "django.db.backends.postgresql",
     #     "NAME": "scenario2",
@@ -252,7 +252,9 @@ INSTALLED_APPS = (
     # The next two apps allow users to run their own SQL statements on
     # the database, using the SQL_ROLE configured above.
     "freppledb.reportmanager",
+    "freppledb.youpal_theming"
     # "freppledb.executesql",
+
 )
 
 # Custom attribute fields in the database

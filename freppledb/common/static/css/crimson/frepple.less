@@ -3,6 +3,18 @@
 //global classes for HTML tags
 
 //Button classes
+.btn:not(.btn-white){
+  border:none;
+}
+
+input[type="submit"]{
+  outline:0 !important;
+}
+
+.btn-white{
+  background-color: #f7f7f7;
+  color: #5A3CD2;
+}
 
 .btn-giant{
   border-radius: @btn-border-radius-default;
@@ -50,7 +62,41 @@
   background-color: #EDF1F7;
   color: #8F9BB3;
   border: none;
+  cursor: not-allowed !important;
 }
+//Button states
+
+.btn-primary:hover:not(.btn-disabled, .dropdown-toggle, .btn-white){
+  background-color: #7257E0 !important;
+}
+
+.btn-primary:visited:not(.btn-disabled, .dropdown-toggle, .btn-white){
+  background-color: #4E30C4 !important;
+
+
+}
+
+.btn-warning:hover:not(.btn-disabled, .dropdown-toggle, .btn-white){
+  background-color:#FFC94D !important;
+}
+
+.btn-warning:visited:not(.btn-disabled, .dropdown-toggle, .btn-white){
+  background-color: #F09000 !important;
+
+
+}
+
+.btn-white:hover{
+  background-color:#FFF;
+  border: 1px solid #5A3CD2;
+}
+
+.btn-white:active{
+  background-color: #D6CBFF;
+  border:1px solid #4E30C4;
+
+}
+
 
 /*<!----------------------------------------------------!> */
 
@@ -140,4 +186,168 @@ progress::-webkit-progress-value{
   border-radius: 71.5px;
   box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
 }
-  
+
+
+//Custom dropdown menu
+.dropdown-menu{
+  width: 343px;
+  border-radius: 20px;
+  padding:10px;
+  margin-top: 5px;
+  background: #ffffff;
+  -webkit-box-shadow: 2px 7px 15px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 7px 15px -7px rgba(0,0,0,0.75);
+  box-shadow: 2px 7px 15px -7px rgba(0,0,0,0.75);
+}
+
+.dropdown-toggle{
+  width: 343px;
+  height: 44px;
+  border-radius: 20px;
+  padding-left: 25px;
+  padding-top: 10px;
+  border: 1px solid #151A30;
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-box-shadow: 2px 7px 15px -7px rgba(46,45,46,1);
+  -moz-box-shadow: 2px 7px 15px -7px rgba(46,45,46,1);
+  box-shadow: 2px 7px 15px -7px rgba(46,45,46,1);
+}
+
+.caret{
+  margin-top: 6px;
+  margin-right: 5px;
+}
+
+//custom textarea
+
+.form-group textarea::-webkit-input-placeholder { color: #8F9BB3;   font-family: 'DM Sans', sans-serif;}  /* WebKit, Blink, Edge */
+.form-group textarea::-moz-placeholder {  color: #8F9BB3;   font-family: 'DM Sans', sans-serif;  font-size: 14px;
+  font-weight: 400;}  /* Mozilla Firefox 4 to 18 */
+.form-group textarea::-moz-placeholder {  color: #8F9BB3;  font-family: 'DM Sans', sans-serif;   font-size: 14px;
+  font-weight: 400;}  /* Mozilla Firefox 19+ */
+.form-group textarea:-ms-input-placeholder {  color: #8F9BB3;   font-family: 'DM Sans', sans-serif;  font-size: 14px;
+  font-weight: 400;}  /* Internet Explorer 10-11 */
+.form-group textarea::-ms-input-placeholder {  color: #8F9BB3;  font-family: 'DM Sans', sans-serif;  font-size: 14px;
+  font-weight: 400;} 
+
+//custom input groups
+//normal input 
+
+.form-group input{
+  width: 343px;
+  height: 44px;
+  border-radius: 16px;
+  background: #ffffff;
+  border-color: #C5CEE0;
+  padding:20px;
+  color:black;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'DM Sans', sans-serif;
+}
+
+
+//radio buttons
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 28px;
+  width: 28px;
+  border: 1px solid #5A3CD2;
+  border-radius: 50%;
+}
+
+
+/* On mouse-over, add a grey background color */
+input[type="radio"]:hover ~ .checkmark {
+  background-color: #5A3CD2;
+  mix-blend-mode: normal;
+  opacity: 0.08;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 3px;
+	left: 3px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #3366FF;
+}
+
+
+//Input groups states
+//focused
+
+#focused_typing:focus{
+ border:1px solid #2E3A59;
+}
+
+#input_success{
+  border:1px solid @brand-success;
+}
+
+#input_info{
+  border:1px solid @brand-info;
+}
+
+#input_warning{
+  border:1px solid @brand-warning;
+}
+
+#input_danger{
+  border:1px solid @brand-danger;
+}
+
+#input_disabled{
+  cursor:not-allowed;
+  background-color: #EDF1F7;
+  border:1px solid #C5CEE0;
+}
+
+#input_disabled::placeholder{
+  color: #C5CEE0;
+}

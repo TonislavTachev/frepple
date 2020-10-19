@@ -45,13 +45,25 @@ $(function() {
   	$('#row2').hide();
   } // change border color on selected and focused input 
   else
-    $('input').focusin(function(){
+    {% comment %} $('input').focusin(function(){
       $(this).css({"border" : "1px solid #2E3A59"})
     });
     //revert to default border color when input is no longer in focus/selected
     $('input').focusout(function(){
       $(this).css({"border" : "1px solid #C5CEE0"})
-    });
+    }); {% endcomment %}
+    
+  $('.input-group-icon').focusin(function(){
+    $('.input-icon-container').css({"border": "1px solid #2E3A59"})
+  })
+
+  $(".input-group-icon").on("click", ()=>{
+    $("#input_icon").attr("placeholder", "Typing...");
+  })
+
+  $('.input-group-icon').focusout(function(){
+    $('.input-icon-container').css({"border": "1px solid #C5CEE0"})
+  })
 
   $("#login-form").on('submit', function() {
     $("#id_password").val($.trim($("#id_password").val()));
@@ -95,14 +107,14 @@ $(function() {
        <div class="col-xs-5">
              <h1>Buttons</h1>
             <div style="display:flex; flex-direction:column">
-       		<input type="submit" class="btn btn-primary btn-giant"  value="{% trans 'Giat' %}" style="margin-bottom:10px"/>
+       		<input type="submit" class="btn btn-primary btn-giant"  value="{% trans 'Giant' %}" style="margin-bottom:10px"/>
             <input type="submit" class="btn btn-primary btn-large"  value="{% trans 'Large' %}" style="margin-bottom:10px"/>
             <input type="submit" class="btn btn-primary btn-medium"  value="{% trans 'Medium' %}" style="margin-bottom:10px"/>
             <input type="submit" class="btn btn-primary btn-small"  value="{% trans 'Small' %}" style="margin-bottom:10px"/>
              <input type="submit" class="btn btn-primary btn-tiny"  value="{% trans 'Tiny' %}" style="margin-bottom:10px"/>
-             <input type="submit" class="btn btn-disabled btn-large"  value="{% trans 'Disabled' %}" style="margin-bottom:10px"/>
+             <input type="submit" class="btn-disabled btn-large"  value="{% trans 'Disabled' %}" style="margin-bottom:10px"/>
             </div>
-            <h2>Icon buttons</h2>
+            <h2 style="margin-top:30px; margin-bottom:30px">Icon buttons</h2>
           <div class="btn-primary btn-medium" style="display:flex; flex-direction:row; justify-content:space-between; align-items:center; padding:10px">
             <div><p style="margin:0px">Button</p></div>
                <div>
@@ -115,30 +127,164 @@ $(function() {
               </div>
               <div><p style="margin:0px">Button</p></div>
           </div>
-          <h3>Progress bar</h3>
+          <h3 style="margin-top:30px; margin-bottom:30px">Progress bar</h3>
           <div>
           <progress id="file" value="32" max="100"> 32% </progress>
           </div>
-          <h4>Dropdown menu</h4>
+          <h4 style="margin-top:30px; margin-bottom:30px">Dropdown menu</h4>
             <div class="dropdown" style="width:343px">
-               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
                  Dropdown
-               <span class="caret"></span>
+               <div class="caret" style="margin-top:7px;margin-right:5px"></div>
             </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="">
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="padding:5px">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
           </ul>
           </div>
+          <h4 style="margin-top:30px; margin-bottom:30px">Text area input</h4>
+            <form>
+               <div class="form-group">
+                   <textarea class="form-control" placeholder='Place your text here' rows="4" style="resize:none; border-radius:16px; background:#FFFFFF; border:1px solid #C5CEE0; padding:15px"></textarea>
+               </div>
+            </form>
+
+          <h4 style="margin-top:30px; margin-bottom:30px">Input group</h4>
+            <form>
+               <div class="form-group"> 
+                   <input type="text" class="form-control" placeholder="Input text">
+               </div>
+            </form>
+
+            <div class="input-icon-container" style="display:flex; flex-direction:row; justify-content:space-around;align-items:center ;width:343px; height:44px; margin-bottom:40px ;border-radius:16px; border:1px solid #C5CEE0">
+               <div class="input-group-icon">
+                  <input type="text" placeholder="Input text" style="width:260px; border:none; font-size:14px">
+               </div>
+               <div>
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/149/149220.svg" style="height:20px; width:20px; margin-top:5px"/>
+               </div>
+            </div>
+          <h5 style="margin-top:30px; margin-bottom:30px">Checkbox</h5>
+
+          <label class="container">One
+            <input type="radio" checked="checked" name="radio">
+            <span class="checkmark"></span>
+        </label>
+          <label class="container">Two
+           <input type="radio" name="radio">
+           <span class="checkmark"></span>
+        </label>
+        
        </div>
        <div class="col-xs-3">
-       		
+        <h1>Button states</h1>
+        <div style="display:flex; flex-direction:column">
+       		<input type="submit" class="btn btn-primary btn-giant"  value="{% trans 'Giant' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-primary btn-large"  value="{% trans 'Large' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-primary btn-medium"  value="{% trans 'Medium' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-primary btn-small"  value="{% trans 'Small' %}" style="margin-bottom:10px"/>
+             <input type="submit" class="btn btn-primary btn-tiny"  value="{% trans 'Tiny' %}" style="margin-bottom:10px"/>
+             <input type="submit" class="btn-disabled btn-large"  value="{% trans 'Disabled' %}" style="margin-bottom:10px"/>
+          </div>
+           <div style="display:flex; flex-direction:column; margin-top:30px">
+       			<input type="submit" class="btn btn-warning btn-giant"  value="{% trans 'Giant' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-warning btn-large"  value="{% trans 'Large' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-warning btn-medium"  value="{% trans 'Medium' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-warning btn-small"  value="{% trans 'Small' %}" style="margin-bottom:10px"/>
+          </div>
+          <div style="display:flex; flex-direction:column; margin-top:30px">
+       			<input type="submit" class="btn btn-white btn-giant"  value="{% trans 'Giant' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-white btn-large"  value="{% trans 'Large' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-white btn-medium"  value="{% trans 'Medium' %}" style="margin-bottom:10px"/>
+            <input type="submit" class="btn btn-white btn-small"  value="{% trans 'Small' %}" style="margin-bottom:10px"/>
+          </div>
+          <h4 style="margin-top:30px; margin-bottom:30px">Input group state</h4>
+            <form>
+            <h5>Focused</h5>
+               <div class="form-group"> 
+                   <input type="text" class="form-control" id="focused_typing" placeholder="Typing...">
+               </div>
+               <h5>Success</h5>
+               <div class="form-group"> 
+                   <input type="text" class="form-control" id="input_success" placeholder="Typing...">
+               </div>
+               <h5>Info</h5>
+               <div class="form-group"> 
+                   <input type="text" class="form-control" id="input_info" placeholder="Type here">
+               </div>
+                <h5>Warning</h5>
+               <div class="form-group"> 
+                   <input type="text" class="form-control" id="input_warning" placeholder="Incorrect text">
+               </div>
+                <h5>Danger</h5>
+               <div class="form-group"> 
+                   <input type="text" class="form-control" id="input_danger" placeholder="Incorrect text">
+               </div>
+                <h5>Disabled</h5>
+               <div class="form-group"> 
+                   <input type="text" class="form-control" id="input_disabled" placeholder="Placeholder" disabled>
+               </div>
+               <h5>Icon input group state</h5>
+                <h4>Focused</h4>
+                 <div class="input-icon-container" style="display:flex; flex-direction:row; justify-content:space-around;align-items:center ;width:343px; height:44px; margin-bottom:40px ;border-radius:16px; border:1px solid #C5CEE0">
+                     <div class="input-group-icon">
+                       <input type="text" placeholder="Input text" id="input_icon" style="width:260px; border:none; font-size:14px; margin-bottom:6px">
+                     </div>
+                     <div>
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/149/149220.svg" style="height:20px; width:20px; margin-top:5px"/>
+                     </div>
+                 </div>
+                 <h4>Success</h4>
+                 <div class="input-icon-container1" style="display:flex; flex-direction:row; justify-content:space-around;align-items:center ;width:343px; height:44px; margin-bottom:40px ;border-radius:16px; border:1px solid #12CE25">
+                     <div class="input-group-icon1">
+                       <input type="text" placeholder="Input text" id="input_icon" style="width:260px; border:none; font-size:14px; margin-bottom:6px">
+                     </div>
+                     <div>
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/149/149220.svg" style="height:20px; width:20px; margin-top:5px"/>
+                     </div>
+                 </div>
+                 <h4>Info</h4>
+                 <div class="input-icon-container2" style="display:flex; flex-direction:row; justify-content:space-around;align-items:center ;width:343px; height:44px; margin-bottom:40px ;border-radius:16px; border:1px solid #2FA3BD">
+                     <div class="input-group-icon2">
+                       <input type="text" placeholder="Input text" id="input_icon" style="width:260px; border:none; font-size:14px; margin-bottom:6px">
+                     </div>
+                     <div>
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/149/149220.svg" style="height:20px; width:20px; margin-top:5px"/>
+                     </div>
+                 </div>
+                 <h4>Warning</h4>
+                 <div class="input-icon-container3" style="display:flex; flex-direction:row; justify-content:space-around;align-items:center ;width:343px; height:44px; margin-bottom:40px ;border-radius:16px; border:1px solid  #FFAA00">
+                     <div class="input-group-icon3">
+                       <input type="text" placeholder="Input text" id="input_icon" style="width:260px; border:none; font-size:14px; margin-bottom:6px">
+                     </div>
+                     <div>
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/149/149220.svg" style="height:20px; width:20px; margin-top:5px"/>
+                     </div>
+                 </div>
+                 <h4>Danger</h4>
+                 <div class="input-icon-container4" style="display:flex; flex-direction:row; justify-content:space-around;align-items:center ;width:343px; height:44px; margin-bottom:40px ;border-radius:16px; border:1px solid  #FF3D71">
+                     <div class="input-group-icon4">
+                       <input type="text" placeholder="Input text" id="input_icon" style="width:260px; border:none; font-size:14px; margin-bottom:6px">
+                     </div>
+                     <div>
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/149/149220.svg" style="height:20px; width:20px; margin-top:5px"/>
+                     </div>
+                 </div>
+                  <h4>Disabled</h4>
+                 <div class="input-icon-container4" style="display:flex; flex-direction:row; justify-content:space-around;align-items:center ;width:343px; height:44px; margin-bottom:40px ;border-radius:16px; border:1px solid #C5CEE0;background:#EDF1F7 ;cursor:not-allowed">
+                     <div class="input-group-icon4">
+                       <input type="text" placeholder="Input text" id="input_icon" style="width:260px; border:none; font-size:14px; margin-bottom:6px; cursor:not-allowed; background:#EDF1F7" disabled>
+                     </div>
+                     <div>
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/149/149220.svg" style="height:20px; width:20px; margin-top:5px"/>
+                     </div>
+                 </div>
+            </form>
        </div>
        <div class="col-xs-3">
-       		
+       		 
        </div>
    </div>
      

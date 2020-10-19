@@ -420,3 +420,271 @@ input[type="radio"]:hover ~ .checkmark {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+//info checkmark
+.checkbox_container_info {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+//hide default checkbox
+.checkbox_container_info input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.checkmark_checkbox_info{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.checkbox_container_info:hover input ~ .checkmark_checkbox_info {
+  background-color: #2fa3bd;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox_container_info input:checked ~ .checkmark_checkbox_info{
+  background-color: #2fa3bd;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark_checkbox_info:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox_container_info input:checked ~ .checkmark_checkbox_info:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_container_info .checkmark_checkbox_info:after {
+  left: 10px;
+  top: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+//success checkbox
+.checkbox_container_success{
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+//hide default checkbox
+.checkbox_container_success input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.checkmark_checkbox_success{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.checkbox_container_success:hover input ~ .checkmark_checkbox_success {
+  background-color: #12CE25;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox_container_success input:checked ~ .checkmark_checkbox_success{
+  background-color: #12CE25;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark_checkbox_success:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox_container_success input:checked ~ .checkmark_checkbox_success:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_container_success .checkmark_checkbox_success:after {
+  left: 10px;
+  top: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+//warning
+.checkbox_container_warning{
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+//hide default checkbox
+.checkbox_container_warning input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.checkmark_checkbox_warning{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.checkbox_container_warning:hover input ~ .checkmark_checkbox_warning {
+  background-color: #FFAA00;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox_container_warning input:checked ~ .checkmark_checkbox_warning{
+  background-color: #FFAA00;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark_checkbox_warning:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox_container_warning input:checked ~ .checkmark_checkbox_warning:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_container_warning .checkmark_checkbox_warning:after {
+  left: 10px;
+  top: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+//danger
+.checkbox_container_danger{
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+//hide default checkbox
+.checkbox_container_danger input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.checkmark_checkbox_danger{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.checkbox_container_danger:hover input ~ .checkmark_checkbox_danger {
+  background-color: #FF5b5b;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox_container_danger input:checked ~ .checkmark_checkbox_danger{
+  background-color: #FF5b5b;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark_checkbox_danger:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox_container_danger input:checked ~ .checkmark_checkbox_danger:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_container_danger .checkmark_checkbox_danger:after {
+  left: 10px;
+  top: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

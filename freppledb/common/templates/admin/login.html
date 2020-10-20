@@ -105,7 +105,7 @@ $(function() {
         <a href="/reset_password/" id="forgot_passw">{% trans "Forgot password?" %}</a>
       </div>
 		  <div class="form-group text-center">
-		    <input type="submit" class="btn btn-md btn-primary btn-block" id="login_button" value="{% trans 'Log in' %}"/>
+		    <button type="submit" class="btn btn-primary btn-block" id="login_button" value="{% trans 'Log in' %}">Login</button>
 		  </div>
 	  {% comment %} {% setting "SESSION_COOKIE_AGE" as persistent_cookie %}
 	  {% if persistent_cookie %}

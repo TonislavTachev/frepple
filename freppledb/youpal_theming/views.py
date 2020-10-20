@@ -7,3 +7,6 @@ def ElementsDemo(request):
 
 def BaseSite(request):
     return render(request, 'base_site_nav.html')
+
+def BaseMain(request):
+    return render(request, 'base_site_grid.html')

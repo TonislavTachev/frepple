@@ -1,5 +1,6 @@
 @import "./variables.less";
-
+@import "./checkbox_success.css";
+@import (less) "./base_site_nav.css"; //force the css file to behave like a less file
 //global classes for HTML tags
 
 //Button classes
@@ -188,38 +189,38 @@ progress::-webkit-progress-value{
 }
 
 
-//Custom dropdown menu
-.dropdown-menu{
-  width: 343px;
-  border-radius: 20px;
-  padding:10px;
-  margin-top: 5px;
-  background: #ffffff;
-  -webkit-box-shadow: 2px 7px 15px -7px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 7px 15px -7px rgba(0,0,0,0.75);
-  box-shadow: 2px 7px 15px -7px rgba(0,0,0,0.75);
-}
+// //Custom dropdown menu
+// .dropdown-menu{
+//   width: 343px;
+//   border-radius: 20px;
+//   padding:10px;
+//   margin-top: 5px;
+//   background: #ffffff;
+//   -webkit-box-shadow: 2px 7px 15px -7px rgba(0,0,0,0.75);
+//   -moz-box-shadow: 2px 7px 15px -7px rgba(0,0,0,0.75);
+//   box-shadow: 2px 7px 15px -7px rgba(0,0,0,0.75);
+// }
 
-.dropdown-toggle{
-  width: 343px;
-  height: 44px;
-  border-radius: 20px;
-  padding-left: 25px;
-  padding-top: 10px;
-  border: 1px solid #151A30;
-  background: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  -webkit-box-shadow: 2px 7px 15px -7px rgba(46,45,46,1);
-  -moz-box-shadow: 2px 7px 15px -7px rgba(46,45,46,1);
-  box-shadow: 2px 7px 15px -7px rgba(46,45,46,1);
-}
+// .dropdown-toggle{
+//   width: 343px;
+//   height: 44px;
+//   border-radius: 20px;
+//   padding-left: 25px;
+//   padding-top: 10px;
+//   border: 1px solid #151A30;
+//   background: #ffffff;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   -webkit-box-shadow: 2px 7px 15px -7px rgba(46,45,46,1);
+//   -moz-box-shadow: 2px 7px 15px -7px rgba(46,45,46,1);
+//   box-shadow: 2px 7px 15px -7px rgba(46,45,46,1);
+// }
 
-.caret{
-  margin-top: 6px;
-  margin-right: 5px;
-}
+// .caret{
+//   margin-top: 6px;
+//   margin-right: 5px;
+// }
 
 //custom textarea
 
@@ -489,71 +490,71 @@ input[type="radio"]:hover ~ .checkmark {
 }
 
 //success checkbox
-.checkbox_container_success{
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+// .checkbox_container_success{
+//   display: block;
+//   position: relative;
+//   padding-left: 35px;
+//   margin-bottom: 12px;
+//   cursor: pointer;
+//   font-size: 22px;
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+// }
 
-//hide default checkbox
-.checkbox_container_success input{
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
+// //hide default checkbox
+// .checkbox_container_success input{
+//   position: absolute;
+//   opacity: 0;
+//   cursor: pointer;
+//   height: 0;
+//   width: 0;
+// }
 
 
-.checkmark_checkbox_success{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border-radius: 3px;
-}
+// .checkmark_checkbox_success{
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 25px;
+//   width: 25px;
+//   background-color: #eee;
+//   border-radius: 3px;
+// }
 
-.checkbox_container_success:hover input ~ .checkmark_checkbox_success {
-  background-color: #12CE25;
-}
+// .checkbox_container_success:hover input ~ .checkmark_checkbox_success {
+//   background-color: #12CE25;
+// }
 
-/* When the checkbox is checked, add a blue background */
-.checkbox_container_success input:checked ~ .checkmark_checkbox_success{
-  background-color: #12CE25;
-}
+// /* When the checkbox is checked, add a blue background */
+// .checkbox_container_success input:checked ~ .checkmark_checkbox_success{
+//   background-color: #12CE25;
+// }
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark_checkbox_success:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
+// /* Create the checkmark/indicator (hidden when not checked) */
+// .checkmark_checkbox_success:after {
+//   content: "";
+//   position: absolute;
+//   display: none;
+// }
 
-.checkbox_container_success input:checked ~ .checkmark_checkbox_success:after {
-  display: block;
-}
+// .checkbox_container_success input:checked ~ .checkmark_checkbox_success:after {
+//   display: block;
+// }
 
-/* Style the checkmark/indicator */
-.checkbox_container_success .checkmark_checkbox_success:after {
-  left: 10px;
-  top: 6px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
+// /* Style the checkmark/indicator */
+// .checkbox_container_success .checkmark_checkbox_success:after {
+//   left: 10px;
+//   top: 6px;
+//   width: 5px;
+//   height: 10px;
+//   border: solid white;
+//   border-width: 0 3px 3px 0;
+//   -webkit-transform: rotate(45deg);
+//   -ms-transform: rotate(45deg);
+//   transform: rotate(45deg);
+// }
 
 //warning
 .checkbox_container_warning{

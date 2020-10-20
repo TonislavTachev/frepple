@@ -1,0 +1,30 @@
+.navbar_template{
+    background-color: #ffffff;
+    color:#8F9BB3;
+    padding:0;
+}
+
+
+@media (min-width: 992px){
+    .navbar-nav{
+        margin-left:190px !important;
+        height: 100%;
+    }
+}
+
+.breadcrumbrow_template{
+    background:none;
+}
+
+.dropdown .dropdown-toggle{
+    font-family: 'DM Sans', sans-serif;
+    height: 100%;
+}
+
+.dropdown-menu a{
+    font-family: 'DM Sans', sans-serif;
+ }
+
+#nav-menu a.dropdown-toggle{
+    color:#8F9BB3;
+}

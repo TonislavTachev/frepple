@@ -244,6 +244,7 @@ INSTALLED_APPS = (
     "freppledb.output",
     "freppledb.metrics",
     "freppledb.execute",
+     "freppledb.youpal_theming",
     "freppledb.common",
     "django_filters",
     "django_admin_bootstrapped",
@@ -252,7 +253,6 @@ INSTALLED_APPS = (
     # The next two apps allow users to run their own SQL statements on
     # the database, using the SQL_ROLE configured above.
     "freppledb.reportmanager",
-    "freppledb.youpal_theming"
     # "freppledb.executesql",
 
 )
@@ -309,7 +309,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            # os.path.normpath(os.path.join(FREPPLE_HOME,'templates')),
+            os.path.normpath(os.path.join(FREPPLE_HOME,'templates')),
         ],
         "APP_DIRS": True,
         "OPTIONS": {

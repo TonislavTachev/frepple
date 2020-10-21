@@ -257,26 +257,16 @@ $(function() {
   });
 </script>
 {% endblock %}
+
 {% block content %}
 {% block before_table %}{% endblock %}
-<div class="row" style="margin-top:30px">
-   <div class="col-lg-10">
-		  <div class="col-sm-10">
-		     <ol class="breadcrumb" id="breadcrumbs" style="background-color:transparent">
-		       <li><a id="cockpitcrumb" href="{{request.prefix}}/">{% trans 'cockpit'|capfirst %}</a></li>
-		       {% crumbs %}
-		     </ol>
-          </div>
-   </div>
 
-   <div class="col-lg-2" style="text-align:right">
-      <button class="btn" style="width:212px; height:40px; border-radius:16px; background:#FFFFFF; color:#5A3CD2">Distribution</button>
-   </div>
-
-{% comment %} <div id="save_undo" class="col-xs-5 form-inline">
+<div class="container_dashboard" style="padding:20px;">
+<div class="row">
+<div id="save_undo" class="col-xs-5 form-inline">
 {% block save_undo_buttons %}
 {% if not is_popup and reportclass.editable and haschangeperm %}
-<input type="submit" value="{% filter force_escape|upper %}{% trans "Save" %}{% endfilter %}" class="btn btn-primary"  disabled role="button" id="save" onclick="upload.save()" title="{% trans 'save changes'|capfirst|force_escape %}">
+<input type="submit" class="btn btn-md btn-primary" value="{% filter force_escape|upper %}{% trans "Save" %}{% endfilter %}" class="btn btn-primary"  disabled role="button" id="save" onclick="upload.save()" title="{% trans 'save changes'|capfirst|force_escape %}">
 <input type="submit" value="{% filter force_escape|upper %}{% trans "Undo" %}{% endfilter %}" class="btn btn-primary"  disabled role="button" id="undo" onclick="upload.undo()" title="{% trans 'undo changes'|capfirst|force_escape %}">
 {% if actions %}
 <form class="form-addon" method="get" action="#" style="display: inline;" >
@@ -292,12 +282,11 @@ $(function() {
       </ul>
   </div>
 </form>
-{% endif %} {% endcomment %}
-{% comment %} {% endif %} {% endcomment %}
-{% comment %} {% endblock save_undo_buttons %} {% endcomment %}
+{% endif %}
+{% endif %}
+{% endblock save_undo_buttons %}
 </div>
-
-{% comment %} <div id="toolicons" class="col-xs-4 hor-align-right ver-align-middle pull-right">{% block actions %}
+<div id="toolicons" class="col-xs-4 hor-align-right ver-align-middle pull-right">{% block actions %}
 {% if reportclass.filterable %}
 <div class="btn-group" data-toggle="tooltip" data-placement="top" data-original-title="{% trans 'favorites'|capfirst|force_escape %}">
   <button class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -314,8 +303,7 @@ $(function() {
     <input id="favoritename" oninput="favorite.check()" type="text" size="15"></a>
     </li>
   </ul>
-</div>
-{% endif %}
+</div>{% endif %}
 {% if hasaddperm %}<button class="btn btn-xs btn-primary" onclick="location.href='{{request.prefix}}/data/{{model|app_label}}/{{model|object_name|lower}}/add/{% if is_popup %}?_popup=1{% endif %}'" data-toggle="tooltip" data-placement="top" data-original-title="{% trans "Create new object"|escape %}" ><span class="fa fa-plus"></span></button>
 {% if not is_popup %}<button class="btn btn-xs btn-primary"  disabled id="copy_selected" onclick="grid.showCopy()" data-toggle="tooltip" data-placement="top" data-original-title="{% trans 'Copy selected objects'|escape %}" ><span class="fa fa-copy"></span></button>
 {% endif %}{% endif %}{% if hasdeleteperm and not is_popup %}<button class="btn btn-xs btn-primary" id="delete_selected" disabled data-toggle="tooltip" data-placement="top" data-original-title="{% trans 'Delete selected objects'|escape %}" onclick="grid.showDelete()" ><span class="fa fa-minus"></span></button>
@@ -324,14 +312,13 @@ $(function() {
 {% endif %}<button class="btn btn-xs btn-primary" onclick="grid.showExport(true,{{ scenario_permissions }})" data-toggle="tooltip" data-placement="top" data-original-title="{% trans 'export as CSV or Excel file'|capfirst|force_escape %}"><span class="fa fa-arrow-down"></span></button>
 <button class="btn btn-xs btn-primary" onclick="grid.showCustomize(false);" data-toggle="tooltip" data-placement="top" data-original-title="{% trans 'customize'|capfirst|force_escape %}"><span class="fa fa-wrench"></span></button>{% endblock %}
 {% if reportclass.help_url %}<button class="btn btn-xs btn-primary" onclick="window.open('{% setting "DOCUMENTATION_URL" %}/docs/{% version_short %}/{{reportclass.help_url}}');" data-toggle="tooltip" data-placement="top" data-original-title="{% trans 'help'|capfirst|force_escape %}"><span class="fa fa-question"></span></button>{% endif %}
-</div> {% endcomment %}
+</div>
 
 </div>
 
-<div class="container" id="main-row" style="text-align: start;">
-<div id="content-main" class="col-md-12" style=" background:#FFFFFF; margin-top: 0.7em; border-radius:16px; height:700px">
-{% comment %} <table id="grid" class="table table-striped" style="background-color: white"></table> {% endcomment %}
-<h2>Segments</h2>
+<div class="row" id="main-row" style="text-align: center;">
+<div id="content-main" class="col-md-12" style="min-height: 150px; margin-top: 0.7em">
+<table id="grid" class="table table-striped" style="background-color: white"></table>
 <div id="gridpager"></div>
 
 </div>
@@ -339,6 +326,7 @@ $(function() {
 </div>
 
 {% block after_table %}{% endblock %}
+</div>
 
 {% if reportclass.hasTimeBuckets %}
 {% include "admin/subtemplate_timebuckets.html" %}

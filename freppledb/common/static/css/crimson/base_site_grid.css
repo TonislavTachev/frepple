@@ -2,8 +2,14 @@
     font-family: 'DM Sans', sans-serif;
 }
 
-/* @media (min-width: 1200px){
-.container {
+.container_dashboard{
+    background-color: #ffffff;
+    padding:10px;
+    border-radius: 16px;
+}
+
+@media (min-width: 1200px){
+.container_dashboard{
     width: 100%;
  }
-} */
+}
